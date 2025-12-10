@@ -321,20 +321,70 @@ if (logo) {
     });
 }
 
+// Get all sections
+const sections = document.querySelectorAll('section');
+const heroSection = document.getElementById('hero');
+
+// Function to get current section index
+const getCurrentSection = () => {
+    const scrollPosition = window.pageYOffset + window.innerHeight / 2;
+    let currentIndex = -1;
+    
+    sections.forEach((section, index) => {
+        const sectionTop = section.offsetTop;
+        const sectionBottom = sectionTop + section.offsetHeight;
+        
+        if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
+            currentIndex = index;
+        }
+    });
+    
+    return currentIndex;
+};
+
 // Show/hide scroll buttons based on scroll position
 window.addEventListener('scroll', () => {
     const scrollPosition = window.pageYOffset;
-    const documentHeight = document.documentElement.scrollHeight;
-    const windowHeight = window.innerHeight;
-    const isNearBottom = scrollPosition + windowHeight >= documentHeight - 100;
-    const isScrolled = scrollPosition > 300;
+    const heroHeight = heroSection ? heroSection.offsetHeight : window.innerHeight;
+    const isPastHero = scrollPosition > heroHeight - 100;
+    const currentSectionIndex = getCurrentSection();
+    const isAtTop = currentSectionIndex <= 0;
+    const isAtBottom = currentSectionIndex >= sections.length - 1;
 
-    // Show scroll to top button when scrolled down
-    if (scrollToTopBtn) {
-        if (isScrolled) {
-            scrollToTopBtn.classList.add('visible');
-            scrollToTopBtn.style.display = 'flex';
-        } else {
+    // Show scroll buttons only after hero section
+    if (isPastHero) {
+        // Show scroll to top (previous section) button
+        if (scrollToTopBtn) {
+            if (!isAtTop) {
+                scrollToTopBtn.classList.add('visible');
+                scrollToTopBtn.style.display = 'flex';
+            } else {
+                scrollToTopBtn.classList.remove('visible');
+                setTimeout(() => {
+                    if (!scrollToTopBtn.classList.contains('visible')) {
+                        scrollToTopBtn.style.display = 'none';
+                    }
+                }, 300);
+            }
+        }
+
+        // Show scroll to bottom (next section) button
+        if (scrollToBottomBtn) {
+            if (!isAtBottom) {
+                scrollToBottomBtn.classList.add('visible');
+                scrollToBottomBtn.style.display = 'flex';
+            } else {
+                scrollToBottomBtn.classList.remove('visible');
+                setTimeout(() => {
+                    if (!scrollToBottomBtn.classList.contains('visible')) {
+                        scrollToBottomBtn.style.display = 'none';
+                    }
+                }, 300);
+            }
+        }
+    } else {
+        // Hide both buttons when in hero section
+        if (scrollToTopBtn) {
             scrollToTopBtn.classList.remove('visible');
             setTimeout(() => {
                 if (!scrollToTopBtn.classList.contains('visible')) {
@@ -342,14 +392,7 @@ window.addEventListener('scroll', () => {
                 }
             }, 300);
         }
-    }
-
-    // Show scroll to bottom button when not near bottom
-    if (scrollToBottomBtn) {
-        if (isScrolled && !isNearBottom) {
-            scrollToBottomBtn.classList.add('visible');
-            scrollToBottomBtn.style.display = 'flex';
-        } else {
+        if (scrollToBottomBtn) {
             scrollToBottomBtn.classList.remove('visible');
             setTimeout(() => {
                 if (!scrollToBottomBtn.classList.contains('visible')) {
@@ -360,22 +403,44 @@ window.addEventListener('scroll', () => {
     }
 });
 
-// Scroll to top functionality
+// Scroll to previous section functionality
 if (scrollToTopBtn) {
     scrollToTopBtn.addEventListener('click', () => {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-        });
+        const currentIndex = getCurrentSection();
+        if (currentIndex > 0) {
+            const targetSection = sections[currentIndex - 1];
+            const offsetTop = targetSection.offsetTop - 80; // Account for navbar
+            window.scrollTo({
+                top: offsetTop,
+                behavior: 'smooth'
+            });
+        } else {
+            // If at first section, scroll to top
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
     });
 }
 
-// Scroll to bottom functionality
+// Scroll to next section functionality
 if (scrollToBottomBtn) {
     scrollToBottomBtn.addEventListener('click', () => {
-        window.scrollTo({
-            top: document.documentElement.scrollHeight,
-            behavior: 'smooth'
-        });
+        const currentIndex = getCurrentSection();
+        if (currentIndex < sections.length - 1) {
+            const targetSection = sections[currentIndex + 1];
+            const offsetTop = targetSection.offsetTop - 80; // Account for navbar
+            window.scrollTo({
+                top: offsetTop,
+                behavior: 'smooth'
+            });
+        } else {
+            // If at last section, scroll to bottom
+            window.scrollTo({
+                top: document.documentElement.scrollHeight,
+                behavior: 'smooth'
+            });
+        }
     });
 }

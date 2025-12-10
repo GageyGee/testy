@@ -1866,8 +1866,12 @@ footer .social-icons a i {
     transform: translateY(-2px) scale(1.05);
 }
 
-.scroll-to-bottom {
+.scroll-to-top {
     bottom: 80px;
+}
+
+.scroll-to-bottom {
+    bottom: 20px;
 }
 
 .scroll-to-bottom.visible {
