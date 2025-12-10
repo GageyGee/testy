@@ -1817,6 +1817,11 @@ footer p {
 
 footer .social-icons a {
     color: #FFFFFF !important;
+    font-size: 1.2rem;
+}
+
+footer .social-icons a i {
+    font-size: 1.2rem;
 }
 
 /* Custom Cursor (Optional) */
