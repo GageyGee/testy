@@ -385,6 +385,10 @@ nav.scrolled {
     margin-right: auto;
 }
 
+.hero p:first-of-type {
+    margin-bottom: 0.5rem;
+}
+
 .hero-buttons {
     display: flex;
     gap: var(--spacing-sm);
