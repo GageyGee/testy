@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechFlow Solutions - Enterprise Technology Services</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --tech-dark: #0a0e27;
+            --tech-darker: #050811;
+            --tech-accent: #00d4ff;
+            --tech-accent-dark: #0099cc;
+            --tech-text: #e0e6ed;
+            --tech-text-muted: #8892b0;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--tech-dark);
+            color: var(--tech-text);
+            overflow-x: hidden;
+        }
+        
+        .header {
+            background: rgba(10, 14, 39, 0.8);
+            backdrop-filter: blur(20px);
+            padding: 1.5rem 5rem;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(0, 212, 255, 0.1);
+        }
+        
+        .nav {
+            max-width: 1600px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.6rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--tech-accent), #5b9bd5);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -1px;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 3rem;
+            list-style: none;
+            align-items: center;
+        }
+        
+        .nav-links a {
+            color: var(--tech-text);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+            position: relative;
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--tech-accent);
+            transition: width 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--tech-accent);
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        .cta-btn {
+            background: linear-gradient(135deg, var(--tech-accent), var(--tech-accent-dark));
+            color: var(--tech-dark);
+            padding: 0.7rem 1.5rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .cta-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 212, 255, 0.4);
+        }
+        
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 8rem 5rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 20%;
+            right: 10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(0, 212, 255, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: pulse 6s ease-in-out infinite;
+        }
+        
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 10%;
+            left: 10%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(91, 155, 213, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: pulse 8s ease-in-out infinite reverse;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.6; }
+            50% { transform: scale(1.3); opacity: 0.3; }
+        }
+        
+        .hero-content {
+            max-width: 1000px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero-badge {
+            display: inline-block;
+            padding: 0.5rem 1.2rem;
+            background: rgba(0, 212, 255, 0.1);
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            border-radius: 50px;
+            color: var(--tech-accent);
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+        }
+        
+        .hero h1 {
+            font-size: clamp(3rem, 8vw, 6.5rem);
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+            background: linear-gradient(135deg, var(--tech-accent), #ffffff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -3px;
+        }
+        
+        .hero p {
+            font-size: 1.4rem;
+            color: var(--tech-text-muted);
+            margin-bottom: 3rem;
+            line-height: 1.7;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .btn-group {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn-primary {
+            display: inline-block;
+            padding: 1.1rem 2.8rem;
+            background: linear-gradient(135deg, var(--tech-accent), var(--tech-accent-dark));
+            color: var(--tech-dark);
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 700;
+            transition: all 0.3s;
+            font-size: 1rem;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0, 212, 255, 0.5);
+        }
+        
+        .btn-secondary {
+            display: inline-block;
+            padding: 1.1rem 2.8rem;
+            background: transparent;
+            color: var(--tech-text);
+            text-decoration: none;
+            border: 2px solid rgba(0, 212, 255, 0.3);
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s;
+            font-size: 1rem;
+        }
+        
+        .btn-secondary:hover {
+            border-color: var(--tech-accent);
+            background: rgba(0, 212, 255, 0.1);
+        }
+        
+        .services {
+            padding: 10rem 5rem;
+            background: var(--tech-darker);
+        }
+        
+        .services-container {
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 6rem;
+        }
+        
+        .section-badge {
+            display: inline-block;
+            padding: 0.5rem 1.2rem;
+            background: rgba(0, 212, 255, 0.1);
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            border-radius: 50px;
+            color: var(--tech-accent);
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+        
+        .section-header h2 {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 900;
+            margin-bottom: 1rem;
+            color: var(--tech-text);
+            letter-spacing: -2px;
+        }
+        
+        .section-header p {
+            font-size: 1.3rem;
+            color: var(--tech-text-muted);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2.5rem;
+        }
+        
+        .service-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(0, 212, 255, 0.1);
+            border-radius: 20px;
+            padding: 3rem;
+            transition: all 0.4s;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--tech-accent), transparent);
+            transform: scaleX(0);
+            transition: transform 0.4s;
+        }
+        
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(0, 212, 255, 0.5);
+            box-shadow: 0 25px 60px rgba(0, 212, 255, 0.2);
+            background: rgba(255, 255, 255, 0.04);
+        }
+        
+        .service-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.2), rgba(91, 155, 213, 0.1));
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: var(--tech-accent);
+            margin-bottom: 2rem;
+        }
+        
+        .service-card h3 {
+            font-size: 1.6rem;
+            margin-bottom: 1rem;
+            color: var(--tech-text);
+            font-weight: 700;
+        }
+        
+        .service-card p {
+            color: var(--tech-text-muted);
+            line-height: 1.8;
+            font-size: 1rem;
+        }
+        
+        .stats {
+            padding: 10rem 5rem;
+            background: var(--tech-dark);
+        }
+        
+        .stats-grid {
+            max-width: 1600px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 4rem;
+            text-align: center;
+        }
+        
+        .stat-item {
+            position: relative;
+        }
+        
+        .stat-item::after {
+            content: '';
+            position: absolute;
+            right: -2rem;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 1px;
+            height: 60px;
+            background: rgba(0, 212, 255, 0.2);
+        }
+        
+        .stat-item:last-child::after {
+            display: none;
+        }
+        
+        .stat-number {
+            font-size: 4.5rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--tech-accent), #5b9bd5);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+            line-height: 1;
+        }
+        
+        .stat-label {
+            color: var(--tech-text-muted);
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+        
+        .case-studies {
+            padding: 10rem 5rem;
+            background: var(--tech-darker);
+        }
+        
+        .case-studies-container {
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+        
+        .case-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 3rem;
+        }
+        
+        .case-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(0, 212, 255, 0.1);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.4s;
+        }
+        
+        .case-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(0, 212, 255, 0.3);
+        }
+        
+        .case-image {
+            height: 300px;
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.2), rgba(91, 155, 213, 0.1));
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: var(--tech-accent);
+        }
+        
+        .case-content {
+            padding: 2.5rem;
+        }
+        
+        .case-content h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--tech-text);
+            font-weight: 700;
+        }
+        
+        .case-content p {
+            color: var(--tech-text-muted);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+        
+        .case-link {
+            color: var(--tech-accent);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: gap 0.3s;
+        }
+        
+        .case-link:hover {
+            gap: 1rem;
+        }
+        
+        .footer {
+            background: var(--tech-darker);
+            padding: 5rem 5rem 2rem;
+            border-top: 1px solid rgba(0, 212, 255, 0.1);
+        }
+        
+        .footer-content {
+            max-width: 1600px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 4rem;
+            margin-bottom: 3rem;
+        }
+        
+        .footer-brand h3 {
+            font-size: 1.6rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--tech-accent), #5b9bd5);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .footer-brand p {
+            color: var(--tech-text-muted);
+            line-height: 1.8;
+        }
+        
+        .footer-links h4 {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            color: var(--tech-text);
+        }
+        
+        .footer-links ul {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-links a {
+            color: var(--tech-text-muted);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--tech-accent);
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid rgba(0, 212, 255, 0.1);
+            padding-top: 2rem;
+            text-align: center;
+            color: var(--tech-text-muted);
+        }
+        
+        @media (max-width: 1200px) {
+            .services-grid,
+            .case-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .stat-item::after {
+                display: none;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header {
+                padding: 1rem 2rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .hero {
+                padding: 6rem 2rem;
+            }
+            
+            .services,
+            .stats,
+            .case-studies {
+                padding: 5rem 2rem;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <div class="logo">TechFlow</div>
+            <ul class="nav-links">
+                <li><a href="#services">Services</a></li>
+                <li><a href="#cases">Case Studies</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact" class="cta-btn">Get Started</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">Enterprise Technology Solutions</div>
+            <h1>Transform Your Business<br>With Technology</h1>
+            <p>We help enterprises leverage cutting-edge technology to drive innovation, optimize operations, and achieve measurable results.</p>
+            <div class="btn-group">
+                <a href="#contact" class="btn-primary">Schedule Consultation</a>
+                <a href="#cases" class="btn-secondary">View Case Studies</a>
+            </div>
+        </div>
+    </section>
+    
+    <section class="services" id="services">
+        <div class="services-container">
+            <div class="section-header">
+                <div class="section-badge">What We Do</div>
+                <h2>Enterprise Solutions</h2>
+                <p>Comprehensive technology services designed to scale with your business</p>
+            </div>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-cloud"></i>
+                    </div>
+                    <h3>Cloud Infrastructure</h3>
+                    <p>Design, deploy, and manage scalable cloud architectures on AWS, Azure, and GCP. Optimize costs while ensuring high availability and security.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3>Custom Development</h3>
+                    <p>Build enterprise-grade applications using modern frameworks. Full-stack development with focus on performance, security, and scalability.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Cybersecurity</h3>
+                    <p>Comprehensive security audits, penetration testing, and implementation of security best practices to protect your digital assets.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="stats">
+        <div class="stats-grid">
+            <div class="stat-item">
+                <div class="stat-number">150+</div>
+                <div class="stat-label">Enterprise Clients</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">98%</div>
+                <div class="stat-label">Client Retention</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">$2.5B+</div>
+                <div class="stat-label">Revenue Generated</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">24/7</div>
+                <div class="stat-label">Support Available</div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="case-studies" id="cases">
+        <div class="case-studies-container">
+            <div class="section-header">
+                <div class="section-badge">Success Stories</div>
+                <h2>Case Studies</h2>
+                <p>Real results from real businesses</p>
+            </div>
+            
+            <div class="case-grid">
+                <div class="case-card">
+                    <div class="case-image">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <div class="case-content">
+                        <h3>Fortune 500 Cloud Migration</h3>
+                        <p>Migrated entire infrastructure to AWS, reducing costs by 40% while improving uptime to 99.99%. Implemented automated scaling and disaster recovery.</p>
+                        <a href="#" class="case-link">Read Case Study <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="case-card">
+                    <div class="case-image">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="case-content">
+                        <h3>E-commerce Platform Optimization</h3>
+                        <p>Redesigned architecture and optimized database queries, resulting in 300% increase in page load speed and 50% reduction in server costs.</p>
+                        <a href="#" class="case-link">Read Case Study <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <footer class="footer" id="contact">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <h3>TechFlow Solutions</h3>
+                <p>Leading enterprise technology consultancy helping businesses transform through innovation and strategic technology implementation.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="#">Cloud Infrastructure</a></li>
+                    <li><a href="#">Custom Development</a></li>
+                    <li><a href="#">Cybersecurity</a></li>
+                    <li><a href="#">Data Analytics</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Case Studies</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Blog</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Contact</h4>
+                <ul>
+                    <li><a href="#">hello@techflow.com</a></li>
+                    <li><a href="#">(555) 987-6543</a></li>
+                    <li><a href="#">123 Innovation Drive</a></li>
+                    <li><a href="#">Tech City, TC 54321</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2024 TechFlow Solutions. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

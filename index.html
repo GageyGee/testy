@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[BRAND NAME] - Web Design Agency</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom Stylesheet -->
+    <link rel="stylesheet" href="css/styles.css">
+    
+    <!-- SVG clipPath for rounded bar -->
+    <svg width="0" height="0" style="position: absolute;">
+        <defs>
+            <clipPath id="rounded-top-bar" clipPathUnits="objectBoundingBox">
+                <path d="M 0.0833,0 Q 0,0 0,0.25 L 0,1 L 1,1 L 1,0.25 Q 1,0 0.9167,0 Z"/>
+            </clipPath>
+        </defs>
+    </svg>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <div class="logo">[BRAND NAME]</div>
+            <ul class="nav-links">
+                <li><a href="#work">Work</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+                <i class="fas fa-moon theme-icon-moon"></i>
+                <i class="fas fa-sun theme-icon-sun" style="display: none;"></i>
+            </button>
+            <button class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+        <div class="mobile-menu" id="mobileMenu">
+            <ul class="nav-links">
+                <li><a href="#work">Work</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <button class="theme-toggle mobile-theme-toggle" id="mobileThemeToggle" aria-label="Toggle dark mode">
+                <i class="fas fa-moon theme-icon-moon"></i>
+                <i class="fas fa-sun theme-icon-sun" style="display: none;"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-content">
+            <h1>We Build Websites That Actually Convert</h1>
+            <p>Modern, fast, stunning websites for businesses ready to grow. No templates. No hassle. Just results.</p>
+            <div class="hero-buttons">
+                <a href="#work" class="btn btn-primary">View Our Work</a>
+                <a href="#pricing" class="btn btn-secondary">See Packages</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Proof Bar -->
+    <section class="social-proof">
+        <div class="social-proof-content">
+            <p>Trusted by 20+ local businesses</p>
+            <div class="client-logos">
+                <div class="logo-placeholder"></div>
+                <div class="logo-placeholder"></div>
+                <div class="logo-placeholder"></div>
+                <div class="logo-placeholder"></div>
+                <div class="logo-placeholder"></div>
+                <div class="logo-placeholder"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="section-container">
+            <div class="section-header">
+                <h2>What We Do</h2>
+                <p>Everything you need to dominate online.</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3>Custom Websites</h3>
+                    <p>No cookie-cutter templates. Every site is built from scratch to match your brand and goals.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>Mobile-First Design</h3>
+                    <p>Over 60% of traffic is mobile. Your site will look stunning on every device.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h3>Built to Convert</h3>
+                    <p>Beautiful is nice. Beautiful AND effective is better. We build sites that turn visitors into customers.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section class="portfolio" id="work">
+        <div class="section-container">
+            <div class="section-header">
+                <h2>Our Work</h2>
+                <p>Real results for real businesses.</p>
+            </div>
+            <div class="portfolio-grid">
+                <div class="portfolio-item">
+                    <a href="demos/luna-coffee.html" target="_blank" class="portfolio-link">
+                        <div class="portfolio-image">
+                            <div class="portfolio-placeholder" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                                <div class="portfolio-preview">
+                                    <div class="preview-header"></div>
+                                    <div class="preview-content">
+                                        <div class="preview-line"></div>
+                                        <div class="preview-line short"></div>
+                                        <div class="preview-box"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="portfolio-info">
+                            <h3>Luna Coffee Roasters</h3>
+                            <p>Coffee Shop • E-commerce Website</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="portfolio-item">
+                    <a href="demos/techflow.html" target="_blank" class="portfolio-link">
+                        <div class="portfolio-image">
+                            <div class="portfolio-placeholder" style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);">
+                                <div class="portfolio-preview dark">
+                                    <div class="preview-header dark"></div>
+                                    <div class="preview-content">
+                                        <div class="preview-line dark"></div>
+                                        <div class="preview-line short dark"></div>
+                                        <div class="preview-grid">
+                                            <div class="preview-grid-item"></div>
+                                            <div class="preview-grid-item"></div>
+                                            <div class="preview-grid-item"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="portfolio-info">
+                            <h3>TechFlow Solutions</h3>
+                            <p>Tech Agency • Corporate Website</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="portfolio-item">
+                    <a href="demos/bloom-floral.html" target="_blank" class="portfolio-link">
+                        <div class="portfolio-image">
+                            <div class="portfolio-placeholder" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+                                <div class="portfolio-preview">
+                                    <div class="preview-header pink"></div>
+                                    <div class="preview-content">
+                                        <div class="preview-circle"></div>
+                                        <div class="preview-line"></div>
+                                        <div class="preview-line short"></div>
+                                        <div class="preview-box small"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="portfolio-info">
+                            <h3>Bloom Floral Design</h3>
+                            <p>Florist • Booking Website</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="view-all">
+                <a href="#work">View All Work →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="process">
+        <div class="section-container">
+            <div class="section-header">
+                <h2>How It Works</h2>
+                <p>From concept to launch in 2 weeks.</p>
+            </div>
+            <div class="process-timeline">
+                <div class="process-step">
+                    <div class="step-number">01</div>
+                    <h3>Discovery</h3>
+                    <p>We learn about your business, goals, and vision.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">02</div>
+                    <h3>Design</h3>
+                    <p>We create a custom design you'll love.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">03</div>
+                    <h3>Development</h3>
+                    <p>We build it with clean, fast, modern code.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">04</div>
+                    <h3>Launch</h3>
+                    <p>We go live and your business starts winning.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing" id="pricing">
+        <div class="section-container">
+            <div class="section-header">
+                <h2>Simple Pricing</h2>
+                <p>Transparent pricing. No hidden fees. Ever.</p>
+                <div class="unlimited-revisions-badge">
+                    <i class="fas fa-infinity"></i>
+                    <span>
+                        <span class="badge-line-1">Unlimited revisions before delivery.</span>
+                        <span class="badge-line-2">We want it perfect, not "good enough."</span>
+                    </span>
+                </div>
+            </div>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <div class="pricing-label">Starter</div>
+                    <div class="pricing-price">$997</div>
+                    <p class="pricing-description">Perfect for new businesses</p>
+                    <ul class="pricing-features">
+                        <li>Single-page website</li>
+                        <li>Mobile responsive</li>
+                        <li>Contact form</li>
+                        <li>1 week delivery</li>
+                        <li><strong>Unlimited revisions before delivery</strong></li>
+                    </ul>
+                    <a href="#contact" class="btn btn-secondary">Get Started</a>
+                </div>
+                <div class="pricing-card featured">
+                    <div class="popular-badge">MOST POPULAR</div>
+                    <div class="pricing-label">Professional</div>
+                    <div class="pricing-price">$2,497</div>
+                    <p class="pricing-description">For businesses ready to grow</p>
+                    <ul class="pricing-features">
+                        <li>Up to 5 pages</li>
+                        <li>Custom design</li>
+                        <li>Complete SEO optimization</li>
+                        <li>Analytics setup</li>
+                        <li>2 week delivery</li>
+                        <li><strong>Unlimited revisions before delivery</strong></li>
+                    </ul>
+                    <a href="#contact" class="btn btn-primary">Get Started</a>
+                </div>
+                <div class="pricing-card">
+                    <div class="pricing-label">Premium</div>
+                    <div class="pricing-price">$5,997</div>
+                    <p class="pricing-description">Complete digital transformation</p>
+                    <ul class="pricing-features">
+                        <li>Up to 10 pages</li>
+                        <li>Premium animations</li>
+                        <li>E-commerce OR booking</li>
+                        <li>CMS integration</li>
+                        <li>Advanced SEO optimization</li>
+                        <li>Priority support</li>
+                        <li>30 days post-launch support</li>
+                        <li><strong>Unlimited revisions before delivery</strong></li>
+                    </ul>
+                    <a href="#contact" class="btn btn-secondary">Get Started</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Statistics Section -->
+    <section class="statistics">
+        <div class="section-container">
+            <div class="section-header">
+                <h2>Real Results</h2>
+                <p>See what happens when businesses get websites that actually work.</p>
+            </div>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="stat-number" data-target="247">0</div>
+                    <div class="stat-label">Average Conversion Increase</div>
+                    <div class="stat-bar-wrapper">
+                        <div class="stat-bar" data-percent="85"></div>
+                    </div>
+                    <p class="stat-description">+247% average increase in conversions after launch</p>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <div class="stat-number" data-target="156">0</div>
+                    <div class="stat-label">SEO Ranking Improvement</div>
+                    <div class="stat-bar-wrapper">
+                        <div class="stat-bar" data-percent="78"></div>
+                    </div>
+                    <p class="stat-description">+156% average improvement in search rankings</p>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="stat-number" data-target="312">0</div>
+                    <div class="stat-label">Website Traffic Growth</div>
+                    <div class="stat-bar-wrapper">
+                        <div class="stat-bar" data-percent="92"></div>
+                    </div>
+                    <p class="stat-description">+312% average increase in organic traffic</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Website Care Plans Section -->
+    <section class="care-plans" id="care-plans">
+        <div class="section-container">
+            <div class="section-header">
+                <h2>Website Care Plans</h2>
+                <p>Your website, handled. So you can focus on your business.</p>
+            </div>
+
+            <div class="care-grid">
+                <div class="care-card">
+                    <div class="care-label">Starter Care</div>
+                    <div class="care-price">$49<span class="care-period">/month</span></div>
+                    <p class="care-tagline">For simple sites that need a home</p>
+                    <ul class="care-features">
+                        <li>Hosting & domain management</li>
+                        <li>SSL security certificate</li>
+                        <li>Weekly backups</li>
+                        <li>Uptime monitoring</li>
+                        <li>30 minutes of revisions/month</li>
+                        <li>48-hour email support</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-secondary">Get Started</a>
+                </div>
+                <div class="care-card featured">
+                    <div class="popular-badge">MOST POPULAR</div>
+                    <div class="care-label">Professional Care</div>
+                    <div class="care-price">$99<span class="care-period">/month</span></div>
+                    <p class="care-tagline">For active businesses</p>
+                    <ul class="care-features">
+                        <li>Everything in Starter, plus:</li>
+                        <li>1 hour of revisions/month</li>
+                        <li>Monthly analytics report</li>
+                        <li>Performance optimization</li>
+                        <li>Priority support (24hr response)</li>
+                        <li>Plugin & software updates</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-care-primary">Get Started</a>
+                </div>
+                <div class="care-card">
+                    <div class="care-label">Premium Care</div>
+                    <div class="care-price">$199<span class="care-period">/month</span></div>
+                    <p class="care-tagline">For businesses that move fast</p>
+                    <ul class="care-features">
+                        <li>Everything in Professional, plus:</li>
+                        <li>2 hours of revisions/month</li>
+                        <li>Same-day priority support</li>
+                        <li>E-commerce/booking updates</li>
+                        <li>Unused hours roll over</li>
+                        <li>Emergency support line</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-secondary">Get Started</a>
+                </div>
+            </div>
+
+            <div class="comparison-table-wrapper">
+                <h3 style="text-align: center; margin-bottom: var(--spacing-md); font-size: 1.5rem;">Compare Plans</h3>
+                <div class="comparison-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Feature</th>
+                                <th>Starter</th>
+                                <th>Professional</th>
+                                <th>Premium</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Hosting & SSL</td>
+                                <td><span class="check-mark">✓</span></td>
+                                <td><span class="check-mark">✓</span></td>
+                                <td><span class="check-mark">✓</span></td>
+                            </tr>
+                            <tr>
+                                <td>Weekly Backups</td>
+                                <td><span class="check-mark">✓</span></td>
+                                <td><span class="check-mark">✓</span></td>
+                                <td><span class="check-mark">✓</span></td>
+                            </tr>
+                            <tr>
+                                <td>Uptime Monitoring</td>
+                                <td><span class="check-mark">✓</span></td>
+                                <td><span class="check-mark">✓</span></td>
+                                <td><span class="check-mark">✓</span></td>
+                            </tr>
+                            <tr>
+                                <td>Monthly Revisions</td>
+                                <td>30 min</td>
+                                <td>1 hour</td>
+                                <td>2 hours</td>
+                            </tr>
+                            <tr>
+                                <td>Response Time</td>
+                                <td>48 hours</td>
+                                <td>24 hours</td>
+                                <td>Same day</td>
+                            </tr>
+                            <tr>
+                                <td>Analytics Report</td>
+                                <td><span class="x-mark">✗</span></td>
+                                <td><span class="check-mark">✓</span></td>
+                                <td><span class="check-mark">✓</span></td>
+                            </tr>
+                            <tr>
+                                <td>Rollover Hours</td>
+                                <td><span class="x-mark">✗</span></td>
+                                <td><span class="x-mark">✗</span></td>
+                                <td><span class="check-mark">✓</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="faq-section">
+                <h3 style="text-align: center; margin-bottom: var(--spacing-md); font-size: 1.5rem;">Frequently Asked Questions</h3>
+                <div class="faq-container">
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>Do I need a maintenance plan?</span>
+                            <span class="faq-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>If you want your website to stay secure, load fast, and work properly—yes. Websites need regular updates, security patches, and monitoring. Our plans handle all of that so you don't have to think about it.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>What counts as a 'revision'?</span>
+                            <span class="faq-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Minor changes like updating text, swapping images, changing business hours, adding team members, or updating prices. Major changes like new pages, new features, or design overhauls are quoted separately.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>What if I don't use all my revision time?</span>
+                            <span class="faq-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>On Starter and Professional plans, unused time doesn't roll over. On Premium, you can bank up to 2 hours. But remember—the plan covers way more than just revisions: hosting, security, backups, and support are all included.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>Can I cancel anytime?</span>
+                            <span class="faq-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Yes, with 30 days notice. We'll help you transition your hosting and files so there's no downtime.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>What if I need more than my plan includes?</span>
+                            <span class="faq-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>No problem. Additional revision time is billed at $100/hour, or you can upgrade your plan anytime.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="care-cta">
+                <p style="margin-bottom: var(--spacing-sm);">Not sure which plan is right for you?</p>
+                <a href="#contact" class="btn btn-care-primary">Let's Talk</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="section-container">
+            <div class="section-header">
+                <h2>What Clients Say</h2>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-quote">"</div>
+                    <p class="testimonial-text">This is where a client testimonial will go. They'll talk about how great the experience was and the results they got.</p>
+                    <div class="testimonial-author">— Client Name</div>
+                    <div class="testimonial-business">Business Name</div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-quote">"</div>
+                    <p class="testimonial-text">This is where a client testimonial will go. They'll talk about how great the experience was and the results they got.</p>
+                    <div class="testimonial-author">— Client Name</div>
+                    <div class="testimonial-business">Business Name</div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-quote">"</div>
+                    <p class="testimonial-text">This is where a client testimonial will go. They'll talk about how great the experience was and the results they got.</p>
+                    <div class="testimonial-author">— Client Name</div>
+                    <div class="testimonial-business">Business Name</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About/CTA Section -->
+    <section class="about-cta" id="about">
+        <div class="section-container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>Let's Build Something Great</h2>
+                    <p>We're a small team obsessed with creating websites that actually work. No bloated agencies. No endless meetings. Just great design, clean code, and real results. Based in [City], working with businesses everywhere.</p>
+                    <a href="#contact" class="btn btn-primary">Start Your Project →</a>
+                </div>
+                <div class="about-image">Team/Founder Image</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="section-container">
+            <div class="section-header">
+                <h2>Get In Touch</h2>
+                <p>Ready to upgrade your online presence? Let's talk.</p>
+            </div>
+            <div class="contact-content">
+                <form class="contact-form" id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="business">Business Name</label>
+                        <input type="text" id="business" name="business">
+                    </div>
+                    <div class="form-group">
+                        <label for="package">Package Interested In</label>
+                        <select id="package" name="package" class="form-select">
+                            <option value="">Select a package...</option>
+                            <option value="starter">Starter ($997)</option>
+                            <option value="professional">Professional ($2,497)</option>
+                            <option value="premium">Premium ($5,997)</option>
+                            <option value="not-sure">Not sure yet</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="maintenance">Maintenance Plan Interest</label>
+                        <select id="maintenance" name="maintenance" class="form-select">
+                            <option value="">Select an option...</option>
+                            <option value="starter-care">Starter Care ($49/month)</option>
+                            <option value="professional-care">Professional Care ($99/month)</option>
+                            <option value="premium-care">Premium Care ($199/month)</option>
+                            <option value="no-maintenance">No maintenance needed</option>
+                            <option value="not-sure">Not sure yet</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                </form>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <p>hello@[brandname].com</p>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <p>(555) 123-4567</p>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <p>[City, State]</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div>
+                <div class="footer-logo">[BRAND NAME]</div>
+                <p style="color: rgba(255, 255, 255, 0.7); margin-top: var(--spacing-sm);">Creating websites that convert.</p>
+            </div>
+            <div>
+                <h4 style="color: var(--color-white); margin-bottom: var(--spacing-sm);">Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="#work">Work</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 style="color: var(--color-white); margin-bottom: var(--spacing-sm);">Connect</h4>
+                <div class="social-icons">
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2024 [BRAND NAME]. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Custom Cursor -->
+    <div class="cursor" id="cursor"></div>
+
+    <!-- Custom JavaScript -->
+    <script src="js/main.js"></script>
+</body>
+</html>

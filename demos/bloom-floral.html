@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bloom Floral Design - Luxury Floral Arrangements</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --bloom-pink: #f5576c;
+            --bloom-pink-light: #f093fb;
+            --bloom-cream: #fffef9;
+            --bloom-dark: #2d3748;
+            --bloom-gray: #718096;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--bloom-dark);
+            background: var(--bloom-cream);
+            overflow-x: hidden;
+        }
+        
+        .header {
+            background: rgba(255, 254, 249, 0.98);
+            backdrop-filter: blur(20px);
+            padding: 1.5rem 4rem;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(245, 87, 108, 0.1);
+            transition: all 0.3s;
+        }
+        
+        .header.scrolled {
+            padding: 1rem 4rem;
+            box-shadow: 0 4px 30px rgba(245, 87, 108, 0.1);
+        }
+        
+        .nav {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.2rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--bloom-pink-light), var(--bloom-pink));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 3rem;
+            list-style: none;
+            align-items: center;
+        }
+        
+        .nav-links a {
+            color: var(--bloom-dark);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+            position: relative;
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--bloom-pink-light), var(--bloom-pink));
+            transition: width 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--bloom-pink);
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        .book-btn {
+            background: linear-gradient(135deg, var(--bloom-pink-light), var(--bloom-pink));
+            color: white;
+            padding: 0.7rem 1.8rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(245, 87, 108, 0.3);
+        }
+        
+        .book-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(245, 87, 108, 0.4);
+        }
+        
+        .hero {
+            margin-top: 80px;
+            min-height: 95vh;
+            background: linear-gradient(135deg, #fff5f7 0%, #ffeef2 50%, #fffef9 100%);
+            display: flex;
+            align-items: center;
+            padding: 0 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            right: -100px;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(245, 87, 108, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 20s ease-in-out infinite;
+        }
+        
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -150px;
+            left: -150px;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(240, 147, 251, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 25s ease-in-out infinite reverse;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            50% { transform: translate(50px, -50px) rotate(180deg); }
+        }
+        
+        .hero-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 6rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero-text h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(3.5rem, 8vw, 6rem);
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 2rem;
+            color: var(--bloom-dark);
+            letter-spacing: -1px;
+        }
+        
+        .hero-text p {
+            font-size: 1.3rem;
+            color: var(--bloom-gray);
+            margin-bottom: 2.5rem;
+            line-height: 1.8;
+        }
+        
+        .btn-primary {
+            display: inline-block;
+            padding: 1.2rem 3rem;
+            background: linear-gradient(135deg, var(--bloom-pink-light), var(--bloom-pink));
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s;
+            font-size: 1.05rem;
+            box-shadow: 0 8px 25px rgba(245, 87, 108, 0.3);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(245, 87, 108, 0.4);
+        }
+        
+        .hero-image {
+            position: relative;
+            height: 650px;
+            background: linear-gradient(135deg, var(--bloom-pink-light) 0%, var(--bloom-pink) 100%);
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: 0 25px 70px rgba(245, 87, 108, 0.25);
+        }
+        
+        .hero-image::before {
+            content: '🌸';
+            position: absolute;
+            font-size: 20rem;
+            opacity: 0.15;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation: rotate 30s linear infinite;
+        }
+        
+        @keyframes rotate {
+            from { transform: translate(-50%, -50%) rotate(0deg); }
+            to { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+        
+        .services {
+            padding: 10rem 4rem;
+            background: white;
+        }
+        
+        .services-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 6rem;
+        }
+        
+        .section-badge {
+            display: inline-block;
+            padding: 0.5rem 1.5rem;
+            background: linear-gradient(135deg, rgba(245, 87, 108, 0.1), rgba(240, 147, 251, 0.1));
+            border-radius: 50px;
+            color: var(--bloom-pink);
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+        
+        .section-header h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(3rem, 6vw, 5rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--bloom-dark);
+        }
+        
+        .section-header p {
+            font-size: 1.2rem;
+            color: var(--bloom-gray);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3rem;
+        }
+        
+        .service-card {
+            background: var(--bloom-cream);
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 8px 30px rgba(245, 87, 108, 0.08);
+            transition: all 0.4s;
+            cursor: pointer;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 20px 60px rgba(245, 87, 108, 0.2);
+        }
+        
+        .service-image {
+            height: 350px;
+            background: linear-gradient(135deg, var(--bloom-pink-light) 0%, var(--bloom-pink) 100%);
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5rem;
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        .service-image::before {
+            content: '';
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            animation: pulse 4s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.4); opacity: 0; }
+        }
+        
+        .service-info {
+            padding: 2.5rem;
+        }
+        
+        .service-name {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.8rem;
+            color: var(--bloom-dark);
+        }
+        
+        .service-description {
+            color: var(--bloom-gray);
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+            font-size: 1rem;
+        }
+        
+        .service-price {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--bloom-pink-light), var(--bloom-pink));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .booking-section {
+            padding: 10rem 4rem;
+            background: linear-gradient(135deg, #fff5f7 0%, #ffeef2 100%);
+        }
+        
+        .booking-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 5rem;
+            border-radius: 30px;
+            box-shadow: 0 20px 60px rgba(245, 87, 108, 0.15);
+        }
+        
+        .booking-container h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3.5rem;
+            text-align: center;
+            margin-bottom: 1rem;
+            color: var(--bloom-dark);
+            font-weight: 700;
+        }
+        
+        .booking-container p {
+            text-align: center;
+            color: var(--bloom-gray);
+            margin-bottom: 3rem;
+            font-size: 1.1rem;
+        }
+        
+        .booking-form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+        
+        .form-group-full {
+            grid-column: 1 / -1;
+        }
+        
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--bloom-dark);
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+        
+        .form-input {
+            width: 100%;
+            padding: 1rem 1.5rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            transition: all 0.3s;
+            background: var(--bloom-cream);
+        }
+        
+        .form-input:focus {
+            outline: none;
+            border-color: var(--bloom-pink);
+            background: white;
+            box-shadow: 0 0 0 4px rgba(245, 87, 108, 0.1);
+        }
+        
+        .form-textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        .form-submit {
+            grid-column: 1 / -1;
+            padding: 1.2rem 3rem;
+            background: linear-gradient(135deg, var(--bloom-pink-light), var(--bloom-pink));
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.05rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 8px 25px rgba(245, 87, 108, 0.3);
+        }
+        
+        .form-submit:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(245, 87, 108, 0.4);
+        }
+        
+        .footer {
+            background: var(--bloom-dark);
+            color: white;
+            padding: 5rem 4rem 2rem;
+        }
+        
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 4rem;
+            margin-bottom: 3rem;
+        }
+        
+        .footer-brand h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .footer-brand p {
+            color: rgba(255,255,255,0.7);
+            line-height: 1.8;
+        }
+        
+        .footer-links h4 {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+        
+        .footer-links ul {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-links a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--bloom-pink-light);
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 2rem;
+            text-align: center;
+            color: rgba(255,255,255,0.6);
+        }
+        
+        @media (max-width: 1024px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero-image {
+                height: 400px;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header {
+                padding: 1rem 2rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .hero {
+                padding: 2rem;
+            }
+            
+            .services,
+            .booking-section {
+                padding: 5rem 2rem;
+            }
+            
+            .booking-form {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header" id="header">
+        <nav class="nav">
+            <div class="logo">Bloom</div>
+            <ul class="nav-links">
+                <li><a href="#services">Services</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#booking" class="book-btn">Book Consultation</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>Luxury Floral Design<br>For Life's Moments</h1>
+                <p>Creating breathtaking arrangements that capture the essence of your special occasions. From intimate gatherings to grand celebrations.</p>
+                <a href="#booking" class="btn-primary">Schedule Consultation</a>
+            </div>
+            <div class="hero-image"></div>
+        </div>
+    </section>
+    
+    <section class="services" id="services">
+        <div class="services-container">
+            <div class="section-header">
+                <div class="section-badge">Our Services</div>
+                <h2>Elegant Arrangements</h2>
+                <p>Handcrafted with care and attention to detail</p>
+            </div>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-image">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <div class="service-info">
+                        <div class="service-name">Wedding Design</div>
+                        <div class="service-description">Complete floral design for your special day. Bouquets, centerpieces, ceremony arches, and reception decor.</div>
+                        <div class="service-price">Starting at $2,500</div>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-image">
+                        <i class="fas fa-birthday-cake"></i>
+                    </div>
+                    <div class="service-info">
+                        <div class="service-name">Event Styling</div>
+                        <div class="service-description">Transform any venue with stunning floral installations. Corporate events, galas, and private celebrations.</div>
+                        <div class="service-price">Starting at $800</div>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-image">
+                        <i class="fas fa-gift"></i>
+                    </div>
+                    <div class="service-info">
+                        <div class="service-name">Custom Arrangements</div>
+                        <div class="service-description">Personalized bouquets and arrangements. Perfect for gifts, home decor, or special occasions.</div>
+                        <div class="service-price">Starting at $95</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="booking-section" id="booking">
+        <div class="booking-container">
+            <h2>Book Your Consultation</h2>
+            <p>Let's bring your floral vision to life</p>
+            <form class="booking-form">
+                <div class="form-group">
+                    <label class="form-label">First Name</label>
+                    <input type="text" class="form-input" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Last Name</label>
+                    <input type="text" class="form-input" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Email Address</label>
+                    <input type="email" class="form-input" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Phone Number</label>
+                    <input type="tel" class="form-input" required>
+                </div>
+                <div class="form-group form-group-full">
+                    <label class="form-label">Event Date</label>
+                    <input type="date" class="form-input" required>
+                </div>
+                <div class="form-group form-group-full">
+                    <label class="form-label">Tell us about your event</label>
+                    <textarea class="form-input form-textarea" required></textarea>
+                </div>
+                <button type="submit" class="form-submit">Request Consultation</button>
+            </form>
+        </div>
+    </section>
+    
+    <footer class="footer" id="contact">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <h3>Bloom Floral Design</h3>
+                <p>Creating beautiful moments through elegant floral design. Serving clients across the region with passion and artistry.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="#">Wedding Design</a></li>
+                    <li><a href="#">Event Styling</a></li>
+                    <li><a href="#">Custom Arrangements</a></li>
+                    <li><a href="#">Subscription</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Gallery</a></li>
+                    <li><a href="#">Testimonials</a></li>
+                    <li><a href="#">Careers</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Contact</h4>
+                <ul>
+                    <li><a href="#">hello@bloomfloral.com</a></li>
+                    <li><a href="#">(555) 234-5678</a></li>
+                    <li><a href="#">123 Garden Street</a></li>
+                    <li><a href="#">Flower City, FC 12345</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2024 Bloom Floral Design. All rights reserved.</p>
+        </div>
+    </footer>
+    
+    <script>
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+    </script>
+</body>
+</html>
