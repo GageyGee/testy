@@ -305,3 +305,77 @@ statCards.forEach(card => {
     statsObserver.observe(card);
 });
 
+// Scroll to top/bottom buttons
+const scrollToTopBtn = document.getElementById('scrollToTop');
+const scrollToBottomBtn = document.getElementById('scrollToBottom');
+const logo = document.querySelector('.logo');
+
+// Make logo clickable to scroll to top
+if (logo) {
+    logo.addEventListener('click', (e) => {
+        e.preventDefault();
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+}
+
+// Show/hide scroll buttons based on scroll position
+window.addEventListener('scroll', () => {
+    const scrollPosition = window.pageYOffset;
+    const documentHeight = document.documentElement.scrollHeight;
+    const windowHeight = window.innerHeight;
+    const isNearBottom = scrollPosition + windowHeight >= documentHeight - 100;
+    const isScrolled = scrollPosition > 300;
+
+    // Show scroll to top button when scrolled down
+    if (scrollToTopBtn) {
+        if (isScrolled) {
+            scrollToTopBtn.classList.add('visible');
+            scrollToTopBtn.style.display = 'flex';
+        } else {
+            scrollToTopBtn.classList.remove('visible');
+            setTimeout(() => {
+                if (!scrollToTopBtn.classList.contains('visible')) {
+                    scrollToTopBtn.style.display = 'none';
+                }
+            }, 300);
+        }
+    }
+
+    // Show scroll to bottom button when not near bottom
+    if (scrollToBottomBtn) {
+        if (isScrolled && !isNearBottom) {
+            scrollToBottomBtn.classList.add('visible');
+            scrollToBottomBtn.style.display = 'flex';
+        } else {
+            scrollToBottomBtn.classList.remove('visible');
+            setTimeout(() => {
+                if (!scrollToBottomBtn.classList.contains('visible')) {
+                    scrollToBottomBtn.style.display = 'none';
+                }
+            }, 300);
+        }
+    }
+});
+
+// Scroll to top functionality
+if (scrollToTopBtn) {
+    scrollToTopBtn.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+}
+
+// Scroll to bottom functionality
+if (scrollToBottomBtn) {
+    scrollToBottomBtn.addEventListener('click', () => {
+        window.scrollTo({
+            top: document.documentElement.scrollHeight,
+            behavior: 'smooth'
+        });
+    });
+}

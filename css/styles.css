@@ -141,6 +141,8 @@ nav.scrolled {
     font-weight: 800;
     font-size: 1.5rem;
     color: var(--color-dark);
+    text-decoration: none;
+    display: inline-block;
 }
 
 .nav-links {
@@ -1822,6 +1824,97 @@ footer .social-icons a {
 
 footer .social-icons a i {
     font-size: 1.2rem;
+}
+
+/* Scroll Buttons */
+.scroll-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: none;
+    background: var(--color-accent);
+    color: var(--color-white);
+    font-size: 1.2rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-md);
+    transition: all 0.3s ease;
+    z-index: 999;
+    opacity: 0;
+    transform: translateY(20px);
+    pointer-events: none;
+}
+
+.scroll-btn.visible {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+.scroll-btn:hover {
+    transform: translateY(-5px) scale(1.1);
+    box-shadow: var(--shadow-lg);
+    background: #0052CC;
+}
+
+.scroll-btn:active {
+    transform: translateY(-2px) scale(1.05);
+}
+
+.scroll-to-bottom {
+    bottom: 80px;
+}
+
+.scroll-to-bottom.visible {
+    animation: bounceDown 2s ease-in-out infinite;
+}
+
+.scroll-to-top.visible {
+    animation: bounceUp 2s ease-in-out infinite;
+}
+
+@keyframes bounceUp {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+@keyframes bounceDown {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(8px);
+    }
+}
+
+/* Dark mode adjustments for scroll buttons */
+[data-theme="dark"] .scroll-btn {
+    background: var(--color-accent);
+    color: var(--color-white);
+}
+
+[data-theme="dark"] .scroll-btn:hover {
+    background: #4A9EFF;
+}
+
+/* Logo link styling */
+.logo {
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.logo:hover {
+    opacity: 0.8;
+    transform: scale(1.05);
 }
 
 /* Custom Cursor (Optional) */
