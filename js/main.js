@@ -305,10 +305,10 @@ statCards.forEach(card => {
     statsObserver.observe(card);
 });
 
-// Scroll to top/bottom buttons
+// Scroll to top button
 const scrollToTopBtn = document.getElementById('scrollToTop');
-const scrollToBottomBtn = document.getElementById('scrollToBottom');
 const logo = document.querySelector('.logo');
+const heroSection = document.getElementById('hero');
 
 // Make logo clickable to scroll to top
 if (logo) {
@@ -321,70 +321,18 @@ if (logo) {
     });
 }
 
-// Get all sections
-const sections = document.querySelectorAll('section');
-const heroSection = document.getElementById('hero');
-
-// Function to get current section index
-const getCurrentSection = () => {
-    const scrollPosition = window.pageYOffset + window.innerHeight / 2;
-    let currentIndex = -1;
-    
-    sections.forEach((section, index) => {
-        const sectionTop = section.offsetTop;
-        const sectionBottom = sectionTop + section.offsetHeight;
-        
-        if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
-            currentIndex = index;
-        }
-    });
-    
-    return currentIndex;
-};
-
-// Show/hide scroll buttons based on scroll position
+// Show/hide scroll button based on scroll position
 window.addEventListener('scroll', () => {
     const scrollPosition = window.pageYOffset;
     const heroHeight = heroSection ? heroSection.offsetHeight : window.innerHeight;
     const isPastHero = scrollPosition > heroHeight - 100;
-    const currentSectionIndex = getCurrentSection();
-    const isAtTop = currentSectionIndex <= 0;
-    const isAtBottom = currentSectionIndex >= sections.length - 1;
 
-    // Show scroll buttons only after hero section
-    if (isPastHero) {
-        // Show scroll to top (previous section) button
-        if (scrollToTopBtn) {
-            if (!isAtTop) {
-                scrollToTopBtn.classList.add('visible');
-                scrollToTopBtn.style.display = 'flex';
-            } else {
-                scrollToTopBtn.classList.remove('visible');
-                setTimeout(() => {
-                    if (!scrollToTopBtn.classList.contains('visible')) {
-                        scrollToTopBtn.style.display = 'none';
-                    }
-                }, 300);
-            }
-        }
-
-        // Show scroll to bottom (next section) button
-        if (scrollToBottomBtn) {
-            if (!isAtBottom) {
-                scrollToBottomBtn.classList.add('visible');
-                scrollToBottomBtn.style.display = 'flex';
-            } else {
-                scrollToBottomBtn.classList.remove('visible');
-                setTimeout(() => {
-                    if (!scrollToBottomBtn.classList.contains('visible')) {
-                        scrollToBottomBtn.style.display = 'none';
-                    }
-                }, 300);
-            }
-        }
-    } else {
-        // Hide both buttons when in hero section
-        if (scrollToTopBtn) {
+    // Show scroll button only after hero section
+    if (scrollToTopBtn) {
+        if (isPastHero) {
+            scrollToTopBtn.classList.add('visible');
+            scrollToTopBtn.style.display = 'flex';
+        } else {
             scrollToTopBtn.classList.remove('visible');
             setTimeout(() => {
                 if (!scrollToTopBtn.classList.contains('visible')) {
@@ -392,55 +340,15 @@ window.addEventListener('scroll', () => {
                 }
             }, 300);
         }
-        if (scrollToBottomBtn) {
-            scrollToBottomBtn.classList.remove('visible');
-            setTimeout(() => {
-                if (!scrollToBottomBtn.classList.contains('visible')) {
-                    scrollToBottomBtn.style.display = 'none';
-                }
-            }, 300);
-        }
     }
 });
 
-// Scroll to previous section functionality
+// Scroll to top functionality
 if (scrollToTopBtn) {
     scrollToTopBtn.addEventListener('click', () => {
-        const currentIndex = getCurrentSection();
-        if (currentIndex > 0) {
-            const targetSection = sections[currentIndex - 1];
-            const offsetTop = targetSection.offsetTop - 80; // Account for navbar
-            window.scrollTo({
-                top: offsetTop,
-                behavior: 'smooth'
-            });
-        } else {
-            // If at first section, scroll to top
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        }
-    });
-}
-
-// Scroll to next section functionality
-if (scrollToBottomBtn) {
-    scrollToBottomBtn.addEventListener('click', () => {
-        const currentIndex = getCurrentSection();
-        if (currentIndex < sections.length - 1) {
-            const targetSection = sections[currentIndex + 1];
-            const offsetTop = targetSection.offsetTop - 80; // Account for navbar
-            window.scrollTo({
-                top: offsetTop,
-                behavior: 'smooth'
-            });
-        } else {
-            // If at last section, scroll to bottom
-            window.scrollTo({
-                top: document.documentElement.scrollHeight,
-                behavior: 'smooth'
-            });
-        }
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
     });
 }

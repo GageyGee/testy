@@ -1866,18 +1866,6 @@ footer .social-icons a i {
     transform: translateY(-2px) scale(1.05);
 }
 
-.scroll-to-top {
-    bottom: 80px;
-}
-
-.scroll-to-bottom {
-    bottom: 20px;
-}
-
-.scroll-to-bottom.visible {
-    animation: bounceDown 2s ease-in-out infinite;
-}
-
 .scroll-to-top.visible {
     animation: bounceUp 2s ease-in-out infinite;
 }
@@ -1888,15 +1876,6 @@ footer .social-icons a i {
     }
     50% {
         transform: translateY(-8px);
-    }
-}
-
-@keyframes bounceDown {
-    0%, 100% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(8px);
     }
 }
 
