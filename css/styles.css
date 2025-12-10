@@ -1732,8 +1732,8 @@ section.visible {
 
 /* Footer */
 footer {
-    background: var(--color-dark);
-    color: var(--color-white);
+    background: #1A1A2E !important;
+    color: #FFFFFF !important;
     padding: var(--spacing-lg) var(--spacing-md);
 }
 
@@ -1751,6 +1751,7 @@ footer {
     font-weight: 800;
     font-size: 1.5rem;
     margin-bottom: var(--spacing-sm);
+    color: #FFFFFF !important;
 }
 
 .footer-links {
@@ -1767,7 +1768,7 @@ footer {
 }
 
 .footer-links a:hover {
-    color: var(--color-white);
+    color: #FFFFFF !important;
 }
 
 .social-icons {
@@ -1788,7 +1789,7 @@ footer {
 }
 
 .social-icons a:hover {
-    background: var(--color-accent);
+    background: #0066FF !important;
     transform: translateY(-3px);
 }
 
@@ -1796,8 +1797,26 @@ footer {
     text-align: center;
     padding-top: var(--spacing-md);
     border-top: 1px solid rgba(255, 255, 255, 0.1);
-    color: rgba(255, 255, 255, 0.6);
+    color: rgba(255, 255, 255, 0.6) !important;
     font-size: 0.9rem;
+}
+
+/* Ensure footer is always dark regardless of theme */
+footer,
+footer * {
+    color: inherit;
+}
+
+footer h4 {
+    color: #FFFFFF !important;
+}
+
+footer p {
+    color: rgba(255, 255, 255, 0.7) !important;
+}
+
+footer .social-icons a {
+    color: #FFFFFF !important;
 }
 
 /* Custom Cursor (Optional) */
