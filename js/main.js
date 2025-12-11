@@ -39,10 +39,7 @@ const getTheme = () => {
     if (savedTheme) {
         return savedTheme;
     }
-    // Check system preference
-    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        return 'dark';
-    }
+    // Default to light mode
     return 'light';
 };
 
@@ -88,14 +85,8 @@ mobileThemeToggle.addEventListener('click', () => {
     mobileMenu.classList.remove('active');
 });
 
-// Listen for system theme changes
-if (window.matchMedia) {
-    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
-        if (!localStorage.getItem('theme')) {
-            applyTheme(e.matches ? 'dark' : 'light');
-        }
-    });
-}
+// Listen for system theme changes (only if user hasn't set a preference)
+// Removed - website defaults to light mode regardless of system preference
 
 hamburger.addEventListener('click', () => {
     hamburger.classList.toggle('active');
