@@ -1,3 +1,20 @@
+// Loading Screen
+const loaderScreen = document.getElementById('loaderScreen');
+const body = document.body;
+
+// Hide loader after 1 second and show main content
+window.addEventListener('load', () => {
+    setTimeout(() => {
+        loaderScreen.classList.add('hidden');
+        body.classList.add('loaded');
+        
+        // Remove loader from DOM after animation completes
+        setTimeout(() => {
+            loaderScreen.style.display = 'none';
+        }, 500);
+    }, 1000);
+});
+
 // Navigation scroll effect
 const navbar = document.getElementById('navbar');
 window.addEventListener('scroll', () => {
@@ -181,13 +198,78 @@ if (cursorEnabled) {
     });
 }
 
+// Copy to clipboard functionality
+const contactCopyItems = document.querySelectorAll('.contact-copy');
+contactCopyItems.forEach(item => {
+    item.addEventListener('click', async () => {
+        const textToCopy = item.getAttribute('data-copy');
+        const feedback = item.querySelector('.copy-feedback');
+        
+        try {
+            await navigator.clipboard.writeText(textToCopy);
+            
+            // Show feedback
+            if (feedback) {
+                feedback.classList.add('show');
+                setTimeout(() => {
+                    feedback.classList.remove('show');
+                }, 2000);
+            }
+        } catch (err) {
+            // Fallback for older browsers
+            const textArea = document.createElement('textarea');
+            textArea.value = textToCopy;
+            textArea.style.position = 'fixed';
+            textArea.style.opacity = '0';
+            document.body.appendChild(textArea);
+            textArea.select();
+            try {
+                document.execCommand('copy');
+                if (feedback) {
+                    feedback.classList.add('show');
+                    setTimeout(() => {
+                        feedback.classList.remove('show');
+                    }, 2000);
+                }
+            } catch (err) {
+                console.error('Failed to copy:', err);
+            }
+            document.body.removeChild(textArea);
+        }
+    });
+});
+
+// Initialize EmailJS
+// Replace 'YOUR_PUBLIC_KEY' with your EmailJS public key
+emailjs.init('YOUR_PUBLIC_KEY');
+
 // Form submission
 const contactForm = document.getElementById('contactForm');
-contactForm.addEventListener('submit', (e) => {
+contactForm.addEventListener('submit', async (e) => {
     e.preventDefault();
-    // Here you would typically send the form data to a server
-    alert('Thank you for your message! We\'ll get back to you soon.');
-    contactForm.reset();
+    
+    const submitButton = contactForm.querySelector('button[type="submit"]');
+    const originalButtonText = submitButton.textContent;
+    
+    // Disable button and show loading state
+    submitButton.disabled = true;
+    submitButton.textContent = 'Sending...';
+    
+    try {
+        // Replace 'YOUR_SERVICE_ID' and 'YOUR_TEMPLATE_ID' with your EmailJS service and template IDs
+        await emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', contactForm);
+        
+        // Success message
+        alert('Thank you for your message! We\'ll get back to you soon.');
+        contactForm.reset();
+    } catch (error) {
+        console.error('Email sending failed:', error);
+        alert('Sorry, there was an error sending your message. Please try again or contact us directly at hello@zegamedia.com');
+    } finally {
+        // Re-enable button
+        submitButton.disabled = false;
+        submitButton.textContent = originalButtonText;
+    }
 });
 
 // Parallax effect for hero section
@@ -203,10 +285,7 @@ window.addEventListener('scroll', () => {
     }
 });
 
-// Add loading animation complete
-window.addEventListener('load', () => {
-    document.body.style.opacity = '1';
-});
+// Body opacity is now handled by the loader screen
 
 // FAQ Accordion functionality
 const faqItems = document.querySelectorAll('.faq-item');

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>[BRAND NAME] - Web Design Agency</title>
+    <title>ZEGA MEDIA - Web Design Agency</title>
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -26,10 +26,21 @@
     </svg>
 </head>
 <body>
+    <!-- Loading Screen -->
+    <div class="loader-screen" id="loaderScreen">
+        <div class="loader-content">
+            <div class="wave-loader">
+                <div class="wave-circle circle-1"></div>
+                <div class="wave-circle circle-2"></div>
+                <div class="wave-circle circle-3"></div>
+            </div>
+        </div>
+    </div>
+
     <!-- Navigation -->
     <nav id="navbar">
         <div class="nav-container">
-            <a href="#hero" class="logo">[BRAND NAME]</a>
+            <a href="#hero" class="logo">ZEGA MEDIA</a>
             <ul class="nav-links">
                 <li><a href="#work">Work</a></li>
                 <li><a href="#services">Services</a></li>
@@ -67,7 +78,7 @@
     <!-- Hero Section -->
     <section class="hero" id="hero">
         <div class="hero-content">
-            <h1>We Build Websites That Actually Convert</h1>
+            <h1>We <span class="build-word">Build</span> Websites That Actually Convert</h1>
             <p>Modern, fast, stunning websites for businesses ready to grow.</p>
             <p>No templates. No hassle. Just results.</p>
             <div class="hero-buttons">
@@ -305,7 +316,6 @@
                     <a href="#contact" class="btn btn-secondary">Get Started</a>
                 </div>
             </div>
-            <p class="pricing-additional-note">Note: Additional pages available at $149 each</p>
         </div>
     </section>
 
@@ -527,7 +537,16 @@
                             <span class="faq-icon">+</span>
                         </div>
                         <div class="faq-answer">
-                            <p>No problem. Premium Care includes unlimited revisions, so you're covered there. For Starter and Professional plans, additional revision time is billed at $100/hour, or you can upgrade your plan anytime. Need new pages? Premium includes 2 free pages per month, or additional pages are available at $149 each for all plans.</p>
+                            <p>No problem. Premium Care includes unlimited revisions, so you're covered there. For Starter and Professional plans, additional revision time is billed at $100/hour, or you can upgrade your plan anytime. Need new pages? Premium Care includes 2 free pages per month.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>Can I add more pages to my website?</span>
+                            <span class="faq-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Absolutely! Additional pages are available at $149 each for all packages. Premium Care subscribers get 2 free pages per month as part of their plan. Just let us know what pages you need and we'll add them to your site.</p>
                         </div>
                     </div>
                 </div>
@@ -575,7 +594,7 @@
             <div class="about-content">
                 <div class="about-text">
                     <h2>Let's Build Something Great</h2>
-                    <p>We're a small team obsessed with creating websites that actually work. No bloated agencies. No endless meetings. Just great design, clean code, and real results. Based in [City], working with businesses everywhere.</p>
+                    <p>We're a small team obsessed with creating websites that actually work. No bloated agencies. No endless meetings. Just great design, clean code, and real results. Based in Toronto, working with businesses everywhere.</p>
                     <a href="#contact" class="btn btn-primary">Start Your Project →</a>
                 </div>
                 <div class="about-image">Team/Founder Image</div>
@@ -629,24 +648,26 @@
                             <option value="not-sure">Not sure yet</option>
                         </select>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group form-group-full">
                         <label for="message">Message</label>
                         <textarea id="message" name="message" required></textarea>
                     </div>
-                    <button type="submit" class="btn btn-primary">Send Message</button>
+                    <button type="submit" class="btn btn-primary form-group-full">Send Message</button>
                 </form>
                 <div class="contact-info">
-                    <div class="contact-item">
+                    <div class="contact-item contact-copy" data-copy="hello@zegamedia.com">
                         <i class="fas fa-envelope"></i>
-                        <p>hello@[brandname].com</p>
+                        <p>hello@zegamedia.com</p>
+                        <span class="copy-feedback">Copied!</span>
                     </div>
-                    <div class="contact-item">
+                    <div class="contact-item contact-copy" data-copy="(555) 123-4567">
                         <i class="fas fa-phone"></i>
                         <p>(555) 123-4567</p>
+                        <span class="copy-feedback">Copied!</span>
                     </div>
                     <div class="contact-item">
                         <i class="fas fa-map-marker-alt"></i>
-                        <p>[City, State]</p>
+                        <p>Toronto, Ontario, Canada</p>
                     </div>
                 </div>
             </div>
@@ -657,7 +678,7 @@
     <footer>
         <div class="footer-content">
             <div>
-                <div class="footer-logo">[BRAND NAME]</div>
+                <div class="footer-logo">ZEGA MEDIA</div>
                 <p style="color: rgba(255, 255, 255, 0.7); margin-top: var(--spacing-sm);">Creating websites that convert.</p>
             </div>
             <div>
@@ -679,7 +700,7 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p>© 2025 [BRAND NAME]. All rights reserved.</p>
+            <p>© 2025 ZEGA MEDIA. All rights reserved.</p>
         </div>
     </footer>
 
@@ -691,6 +712,9 @@
         <i class="fas fa-arrow-up"></i>
     </button>
 
+    <!-- EmailJS -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    
     <!-- Custom JavaScript -->
     <script src="js/main.js"></script>
 </body>
