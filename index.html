@@ -36,15 +36,18 @@
                 <li><a href="#about">About</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
-            <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
-                <i class="fas fa-moon theme-icon-moon"></i>
-                <i class="fas fa-sun theme-icon-sun" style="display: none;"></i>
-            </button>
-            <button class="hamburger" id="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
+            <div class="nav-right">
+                <a href="#contact" class="nav-quote-btn">Get a Quote</a>
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+                    <i class="fas fa-moon theme-icon-moon"></i>
+                    <i class="fas fa-sun theme-icon-sun" style="display: none;"></i>
+                </button>
+                <button class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
         </div>
         <div class="mobile-menu" id="mobileMenu">
             <ul class="nav-links">
@@ -53,6 +56,7 @@
                 <li><a href="#about">About</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
+            <a href="#contact" class="nav-quote-btn mobile-quote-btn">Get a Quote</a>
             <button class="theme-toggle mobile-theme-toggle" id="mobileThemeToggle" aria-label="Toggle dark mode">
                 <i class="fas fa-moon theme-icon-moon"></i>
                 <i class="fas fa-sun theme-icon-sun" style="display: none;"></i>
@@ -250,49 +254,58 @@
             <div class="pricing-grid">
                 <div class="pricing-card">
                     <div class="pricing-label">Starter</div>
+                    <div class="pricing-starting">Starting at</div>
                     <div class="pricing-price">$997</div>
                     <p class="pricing-description">Perfect for new businesses</p>
                     <ul class="pricing-features">
-                        <li>Single-page website</li>
-                        <li>Mobile responsive</li>
-                        <li>Contact form</li>
+                        <li>Single-page scrolling website</li>
+                        <li>Mobile-responsive design</li>
+                        <li>Contact form setup</li>
+                        <li>Basic SEO setup</li>
+                        <li>Unlimited revisions</li>
                         <li>1 week delivery</li>
-                        <li><strong>Unlimited revisions before delivery</strong></li>
                     </ul>
                     <a href="#contact" class="btn btn-secondary">Get Started</a>
                 </div>
                 <div class="pricing-card featured">
                     <div class="popular-badge">MOST POPULAR</div>
                     <div class="pricing-label">Professional</div>
+                    <div class="pricing-starting">Starting at</div>
                     <div class="pricing-price">$2,497</div>
                     <p class="pricing-description">For businesses ready to grow</p>
                     <ul class="pricing-features">
-                        <li>Up to 5 pages</li>
-                        <li>Custom design</li>
-                        <li>Complete SEO optimization</li>
-                        <li>Analytics setup</li>
+                        <li class="pricing-reference">Everything in Starter, plus:</li>
+                        <li>Up to 5 custom pages</li>
+                        <li>Modern animations & effects</li>
+                        <li>Contact form with email integration</li>
+                        <li>Full SEO optimization</li>
+                        <li>Google Analytics setup</li>
+                        <li>Speed optimization</li>
                         <li>2 week delivery</li>
-                        <li><strong>Unlimited revisions before delivery</strong></li>
                     </ul>
                     <a href="#contact" class="btn btn-primary">Get Started</a>
                 </div>
                 <div class="pricing-card">
                     <div class="pricing-label">Premium</div>
+                    <div class="pricing-starting">Starting at</div>
                     <div class="pricing-price">$5,997</div>
                     <p class="pricing-description">Complete digital transformation</p>
                     <ul class="pricing-features">
-                        <li>Up to 10 pages</li>
-                        <li>Premium animations</li>
-                        <li>E-commerce OR booking</li>
-                        <li>CMS integration</li>
-                        <li>Advanced SEO optimization</li>
+                        <li class="pricing-reference">Everything in Professional, plus:</li>
+                        <li>Up to 10 custom pages</li>
+                        <li>Premium animations & interactions</li>
+                        <li>E-commerce OR booking system</li>
+                        <li>CMS integration (edit your own content)</li>
+                        <li>Advanced SEO strategy</li>
                         <li>Priority support</li>
+                        <li>Unlimited revisions</li>
                         <li>30 days post-launch support</li>
-                        <li><strong>Unlimited revisions before delivery</strong></li>
+                        <li>3-4 week delivery</li>
                     </ul>
                     <a href="#contact" class="btn btn-secondary">Get Started</a>
                 </div>
             </div>
+            <p class="pricing-additional-note">Note: Additional pages available at $149 each</p>
         </div>
     </section>
 
@@ -364,32 +377,34 @@
                     </ul>
                     <a href="#contact" class="btn btn-secondary">Get Started</a>
                 </div>
-                <div class="care-card featured">
-                    <div class="popular-badge">MOST POPULAR</div>
+                <div class="care-card">
                     <div class="care-label">Professional Care</div>
                     <div class="care-price">$99<span class="care-period">/month</span></div>
                     <p class="care-tagline">For active businesses</p>
                     <ul class="care-features">
-                        <li>Everything in Starter, plus:</li>
+                        <li class="pricing-reference">Everything in Starter Care, plus:</li>
+                        <li>Daily backups</li>
                         <li>1 hour of revisions/month</li>
                         <li>Monthly analytics report</li>
                         <li>Performance optimization</li>
-                        <li>Priority support (24hr response)</li>
                         <li>Plugin & software updates</li>
+                        <li>Priority support (24hr response)</li>
                     </ul>
-                    <a href="#contact" class="btn btn-care-primary">Get Started</a>
+                    <a href="#contact" class="btn btn-secondary">Get Started</a>
                 </div>
-                <div class="care-card">
+                <div class="care-card featured">
+                    <div class="popular-badge">MOST POPULAR</div>
                     <div class="care-label">Premium Care</div>
-                    <div class="care-price">$199<span class="care-period">/month</span></div>
+                    <div class="care-price">$179<span class="care-period">/month</span></div>
                     <p class="care-tagline">For businesses that move fast</p>
                     <ul class="care-features">
-                        <li>Everything in Professional, plus:</li>
-                        <li>2 hours of revisions/month</li>
+                        <li class="pricing-reference">Everything in Pro Care, plus:</li>
+                        <li><strong>Unlimited revisions</strong></li>
+                        <li><strong>2 free new pages per month ($298 value)</strong></li>
+                        <li>Security monitoring</li>
                         <li>Same-day priority support</li>
-                        <li>E-commerce/booking updates</li>
-                        <li>Unused hours roll over</li>
-                        <li>Emergency support line</li>
+                        <li>Monthly strategy advice</li>
+                        <li>Proactive recommendations</li>
                     </ul>
                     <a href="#contact" class="btn btn-secondary">Get Started</a>
                 </div>
@@ -415,28 +430,10 @@
                                 <td><span class="check-mark">✓</span></td>
                             </tr>
                             <tr>
-                                <td>Weekly Backups</td>
-                                <td><span class="check-mark">✓</span></td>
-                                <td><span class="check-mark">✓</span></td>
-                                <td><span class="check-mark">✓</span></td>
-                            </tr>
-                            <tr>
                                 <td>Uptime Monitoring</td>
                                 <td><span class="check-mark">✓</span></td>
                                 <td><span class="check-mark">✓</span></td>
                                 <td><span class="check-mark">✓</span></td>
-                            </tr>
-                            <tr>
-                                <td>Monthly Revisions</td>
-                                <td>30 min</td>
-                                <td>1 hour</td>
-                                <td>2 hours</td>
-                            </tr>
-                            <tr>
-                                <td>Response Time</td>
-                                <td>48 hours</td>
-                                <td>24 hours</td>
-                                <td>Same day</td>
                             </tr>
                             <tr>
                                 <td>Analytics Report</td>
@@ -445,10 +442,40 @@
                                 <td><span class="check-mark">✓</span></td>
                             </tr>
                             <tr>
-                                <td>Rollover Hours</td>
+                                <td>Security Monitoring</td>
                                 <td><span class="x-mark">✗</span></td>
                                 <td><span class="x-mark">✗</span></td>
                                 <td><span class="check-mark">✓</span></td>
+                            </tr>
+                            <tr>
+                                <td>Strategy Advice</td>
+                                <td><span class="x-mark">✗</span></td>
+                                <td><span class="x-mark">✗</span></td>
+                                <td><span class="check-mark">✓</span></td>
+                            </tr>
+                            <tr>
+                                <td>Backups</td>
+                                <td>Weekly</td>
+                                <td>Daily</td>
+                                <td>Daily</td>
+                            </tr>
+                            <tr>
+                                <td>Monthly Revisions</td>
+                                <td>30 min</td>
+                                <td>1 hour</td>
+                                <td>Unlimited</td>
+                            </tr>
+                            <tr>
+                                <td>Response Time</td>
+                                <td>48 hours</td>
+                                <td>24 hours</td>
+                                <td>Same day</td>
+                            </tr>
+                            <tr>
+                                <td>Free Monthly Pages</td>
+                                <td><span class="x-mark">✗</span></td>
+                                <td><span class="x-mark">✗</span></td>
+                                <td>2</td>
                             </tr>
                         </tbody>
                     </table>
@@ -473,7 +500,7 @@
                             <span class="faq-icon">+</span>
                         </div>
                         <div class="faq-answer">
-                            <p>Minor changes like updating text, swapping images, changing business hours, adding team members, or updating prices. Major changes like new pages, new features, or design overhauls are quoted separately.</p>
+                            <p>Minor changes like updating text, swapping images, changing business hours, adding team members, or updating prices. Major changes like new pages (except Premium's 2 free monthly pages), new features, or design overhauls are quoted separately. Premium Care includes unlimited revisions, so you don't need to worry about counting them.</p>
                         </div>
                     </div>
                     <div class="faq-item">
@@ -482,7 +509,7 @@
                             <span class="faq-icon">+</span>
                         </div>
                         <div class="faq-answer">
-                            <p>On Starter and Professional plans, unused time doesn't roll over. On Premium, you can bank up to 2 hours. But remember—the plan covers way more than just revisions: hosting, security, backups, and support are all included.</p>
+                            <p>On Starter and Professional plans, unused revision time doesn't roll over to the next month. Premium Care includes unlimited revisions, so there's no unused time to worry about. Remember—all plans cover way more than just revisions: hosting, security, backups, and support are all included.</p>
                         </div>
                     </div>
                     <div class="faq-item">
@@ -500,7 +527,7 @@
                             <span class="faq-icon">+</span>
                         </div>
                         <div class="faq-answer">
-                            <p>No problem. Additional revision time is billed at $100/hour, or you can upgrade your plan anytime.</p>
+                            <p>No problem. Premium Care includes unlimited revisions, so you're covered there. For Starter and Professional plans, additional revision time is billed at $100/hour, or you can upgrade your plan anytime. Need new pages? Premium includes 2 free pages per month, or additional pages are available at $149 each for all plans.</p>
                         </div>
                     </div>
                 </div>
@@ -574,26 +601,30 @@
                         <input type="email" id="email" name="email" required>
                     </div>
                     <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone">
+                    </div>
+                    <div class="form-group">
                         <label for="business">Business Name</label>
                         <input type="text" id="business" name="business">
                     </div>
                     <div class="form-group">
-                        <label for="package">Package Interested In</label>
+                        <label for="package">Package</label>
                         <select id="package" name="package" class="form-select">
                             <option value="">Select a package...</option>
-                            <option value="starter">Starter ($997)</option>
-                            <option value="professional">Professional ($2,497)</option>
-                            <option value="premium">Premium ($5,997)</option>
+                            <option value="starter">Starter (~$997)</option>
+                            <option value="professional">Professional (~$2,497)</option>
+                            <option value="premium">Premium (~$5,997)</option>
                             <option value="not-sure">Not sure yet</option>
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="maintenance">Maintenance Plan Interest</label>
+                        <label for="maintenance">Care Plan</label>
                         <select id="maintenance" name="maintenance" class="form-select">
-                            <option value="">Select an option...</option>
-                            <option value="starter-care">Starter Care ($49/month)</option>
-                            <option value="professional-care">Professional Care ($99/month)</option>
-                            <option value="premium-care">Premium Care ($199/month)</option>
+                            <option value="">Select a care plan...</option>
+                            <option value="starter-care">Starter Care (~$49/month)</option>
+                            <option value="professional-care">Professional Care (~$99/month)</option>
+                            <option value="premium-care">Premium Care (~$179/month)</option>
                             <option value="no-maintenance">No maintenance needed</option>
                             <option value="not-sure">Not sure yet</option>
                         </select>
@@ -656,7 +687,7 @@
     <div class="cursor" id="cursor"></div>
 
     <!-- Scroll Button -->
-    <button class="scroll-btn scroll-to-top" id="scrollToTop" aria-label="Scroll to top" style="display: none;">
+    <button class="scroll-btn scroll-to-top" id="scrollToTop" aria-label="Scroll to top">
         <i class="fas fa-arrow-up"></i>
     </button>
 

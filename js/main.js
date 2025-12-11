@@ -331,14 +331,8 @@ window.addEventListener('scroll', () => {
     if (scrollToTopBtn) {
         if (isPastHero) {
             scrollToTopBtn.classList.add('visible');
-            scrollToTopBtn.style.display = 'flex';
         } else {
             scrollToTopBtn.classList.remove('visible');
-            setTimeout(() => {
-                if (!scrollToTopBtn.classList.contains('visible')) {
-                    scrollToTopBtn.style.display = 'none';
-                }
-            }, 300);
         }
     }
 });

@@ -136,6 +136,12 @@ nav.scrolled {
     transform: translateX(-50%);
 }
 
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+}
+
 .logo {
     font-family: 'Plus Jakarta Sans', sans-serif;
     font-weight: 800;
@@ -170,6 +176,37 @@ nav.scrolled {
 
 .nav-links a:hover::after {
     width: 100%;
+}
+
+.nav-quote-btn {
+    padding: 0.5rem 1.25rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Inter', sans-serif;
+    display: inline-block;
+    text-decoration: none;
+    background: var(--color-accent);
+    color: var(--color-white);
+    white-space: nowrap;
+}
+
+.nav-quote-btn:hover {
+    background: #0052CC;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 102, 255, 0.3);
+    color: var(--color-white);
+}
+
+.mobile-quote-btn {
+    margin-top: var(--spacing-md);
+    margin-bottom: var(--spacing-sm);
+    text-align: center;
+    width: 100%;
+    padding: 0.75rem 1.5rem;
 }
 
 .theme-toggle {
@@ -892,6 +929,7 @@ section.visible {
 .pricing-card:hover {
     transform: translateY(-8px);
     box-shadow: 0 12px 40px rgba(0, 102, 255, 0.15);
+    border-color: var(--color-accent);
 }
 
 .pricing-card:hover::after {
@@ -906,6 +944,7 @@ section.visible {
 
 .pricing-card.featured:hover {
     transform: scale(1.08) translateY(-8px);
+    border-color: var(--color-accent);
 }
 
 .pricing-card.featured::after {
@@ -939,12 +978,28 @@ section.visible {
     color: var(--color-dark);
 }
 
+.pricing-starting {
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--color-text-light);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.25rem;
+    opacity: 0.7;
+}
+
 .pricing-price {
     font-size: 3rem;
     font-weight: 800;
     color: var(--color-dark);
     margin-bottom: var(--spacing-xs);
     font-family: 'Plus Jakarta Sans', sans-serif;
+    line-height: 1;
+}
+
+.pricing-price::first-letter {
+    font-size: 2rem;
+    vertical-align: 0.1em;
 }
 
 .pricing-description {
@@ -956,21 +1011,49 @@ section.visible {
 .pricing-features {
     list-style: none;
     margin-bottom: var(--spacing-md);
+    text-align: left;
 }
 
 .pricing-features li {
-    padding: var(--spacing-xs) 0;
+    padding: 0.875rem 0;
     color: var(--color-text);
     display: flex;
-    align-items: center;
-    gap: var(--spacing-xs);
+    align-items: flex-start;
+    gap: 0.75rem;
+    font-size: 0.95rem;
+    line-height: 1.5;
 }
 
 .pricing-features li::before {
     content: '✓';
     color: var(--color-accent);
-    font-weight: bold;
-    font-size: 1.2rem;
+    font-weight: 900;
+    font-size: 1.3rem;
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+    line-height: 1;
+}
+
+.pricing-features li.pricing-reference {
+    font-style: italic;
+    font-size: 0.9rem;
+    color: var(--color-text-light);
+    padding: 0.75rem 0;
+    margin-top: 0.25rem;
+    background: rgba(0, 102, 255, 0.05);
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+    border-radius: 6px;
+    margin-left: -0.75rem;
+    margin-right: -0.75rem;
+}
+
+.pricing-features li.pricing-reference::before {
+    content: '↓';
+    color: var(--color-accent);
+    font-weight: 700;
+    font-size: 1.1rem;
+    font-style: normal;
 }
 
 .pricing-card .btn {
@@ -1000,13 +1083,14 @@ section.visible {
 
 .unlimited-revisions-badge span {
     display: flex;
-    flex-direction: column;
-    gap: 0.25rem;
+    flex-direction: row;
+    gap: 0.5rem;
+    flex-wrap: wrap;
 }
 
 .unlimited-revisions-badge .badge-line-1,
 .unlimited-revisions-badge .badge-line-2 {
-    display: block;
+    display: inline;
     line-height: 1.4;
 }
 
@@ -1299,6 +1383,12 @@ section.visible {
     color: var(--color-dark);
     margin-bottom: var(--spacing-xs);
     font-family: 'Plus Jakarta Sans', sans-serif;
+    line-height: 1;
+}
+
+.care-price::first-letter {
+    font-size: 2rem;
+    vertical-align: 0.1em;
 }
 
 .care-period {
@@ -1316,26 +1406,70 @@ section.visible {
 .care-features {
     list-style: none;
     margin-bottom: var(--spacing-md);
+    text-align: left;
 }
 
 .care-features li {
-    padding: var(--spacing-xs) 0;
+    padding: 0.875rem 0;
     color: var(--color-text);
     display: flex;
-    align-items: center;
-    gap: var(--spacing-xs);
+    align-items: flex-start;
+    gap: 0.75rem;
+    font-size: 0.95rem;
+    line-height: 1.5;
 }
 
 .care-features li::before {
     content: '✓';
     color: var(--color-care-accent);
-    font-weight: bold;
-    font-size: 1.2rem;
+    font-weight: 900;
+    font-size: 1.3rem;
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+    line-height: 1;
+}
+
+.care-features li.pricing-reference {
+    font-style: italic;
+    font-size: 0.9rem;
+    color: var(--color-text-light);
+    padding: 0.75rem 0;
+    margin-top: 0.25rem;
+    background: rgba(16, 185, 129, 0.05);
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+    border-radius: 6px;
+    margin-left: -0.75rem;
+    margin-right: -0.75rem;
+}
+
+.care-features li.pricing-reference::before {
+    content: '↓';
+    color: var(--color-care-accent);
+    font-weight: 700;
+    font-size: 1.1rem;
+    font-style: normal;
 }
 
 .care-card .btn {
     width: 100%;
     text-align: center;
+}
+
+.care-additional-note {
+    text-align: center;
+    font-size: 0.875rem;
+    color: var(--color-text-light);
+    margin-top: 2.5rem;
+    opacity: 0.8;
+}
+
+.pricing-additional-note {
+    text-align: center;
+    font-size: 0.875rem;
+    color: var(--color-text-light);
+    margin-top: 2.5rem;
+    opacity: 0.8;
 }
 
 .btn-care-primary {
@@ -1847,10 +1981,10 @@ footer .social-icons a i {
     align-items: center;
     justify-content: center;
     box-shadow: var(--shadow-md);
-    transition: all 0.3s ease;
+    transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     z-index: 999;
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(40px);
     pointer-events: none;
 }
 
@@ -1944,6 +2078,16 @@ footer .social-icons a i {
     color: var(--color-accent);
 }
 
+[data-theme="dark"] .nav-quote-btn {
+    background: var(--color-accent);
+    color: var(--color-white);
+}
+
+[data-theme="dark"] .nav-quote-btn:hover {
+    background: #4A9EFF;
+    color: var(--color-white);
+}
+
 [data-theme="dark"] .care-card.featured {
     background: linear-gradient(135deg, rgba(0, 217, 255, 0.05) 0%, var(--color-white) 100%);
 }
@@ -1986,6 +2130,10 @@ footer .social-icons a i {
         display: flex;
     }
 
+    .nav-right .nav-quote-btn {
+        display: none;
+    }
+
     .theme-toggle {
         display: flex;
     }
@@ -2016,6 +2164,16 @@ footer .social-icons a i {
         transform: translateY(-8px);
     }
 
+    .pricing-features li {
+        font-size: 0.875rem;
+        padding: 0.75rem 0;
+    }
+
+    .pricing-card {
+        padding: var(--spacing-md);
+        padding-top: calc(var(--spacing-md) + 1rem);
+    }
+
     .unlimited-revisions-badge {
         flex-wrap: wrap;
         justify-content: center;
@@ -2026,8 +2184,8 @@ footer .social-icons a i {
     }
 
     .unlimited-revisions-badge span {
-        flex: 1;
-        min-width: 0;
+        flex-direction: column;
+        gap: 0.25rem;
     }
 
     .unlimited-revisions-badge .badge-line-1,
