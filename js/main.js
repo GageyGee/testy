@@ -247,8 +247,8 @@ contactForm.addEventListener('submit', async (e) => {
     
     try {
         // Service ID: service_h1h99gh
-        // TODO: Replace 'YOUR_TEMPLATE_ID' with your EmailJS template ID (get it from EmailJS dashboard > Email Templates)
-        await emailjs.sendForm('service_h1h99gh', 'YOUR_TEMPLATE_ID', contactForm);
+        // Template ID: template_usqno7l
+        await emailjs.sendForm('service_h1h99gh', 'template_usqno7l', contactForm);
         
         // Success message
         alert('Thank you for your message! We\'ll get back to you soon.');
