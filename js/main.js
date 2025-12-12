@@ -250,17 +250,32 @@ contactForm.addEventListener('submit', async (e) => {
         // Template ID: template_usqno7l
         await emailjs.sendForm('service_h1h99gh', 'template_usqno7l', contactForm);
         
-        // Success message
-        alert('Thank you for your message! We\'ll get back to you soon.');
+        // Success - change button text
+        submitButton.textContent = 'Message Sent Successfully';
+        submitButton.style.background = '#10B981'; // Green color for success
         contactForm.reset();
+        
+        // Reset button after 3 seconds
+        setTimeout(() => {
+            submitButton.textContent = originalButtonText;
+            submitButton.style.background = ''; // Reset to original color
+        }, 3000);
     } catch (error) {
         console.error('Email sending failed:', error);
-        alert('Sorry, there was an error sending your message. Please try again or contact us directly at hello@zegamedia.com');
-    } finally {
-        // Re-enable button
-        submitButton.disabled = false;
-        submitButton.textContent = originalButtonText;
+        submitButton.textContent = 'Error - Try Again';
+        submitButton.style.background = '#EF4444'; // Red color for error
+        
+        // Reset button after 3 seconds
+        setTimeout(() => {
+            submitButton.textContent = originalButtonText;
+            submitButton.style.background = ''; // Reset to original color
+            submitButton.disabled = false;
+        }, 3000);
+        return; // Don't re-enable immediately
     }
+    
+    // Re-enable button after success
+    submitButton.disabled = false;
 });
 
 // Parallax effect for hero section
