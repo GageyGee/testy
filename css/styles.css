@@ -232,7 +232,39 @@ nav.scrolled {
     font-size: 1.5rem;
     color: var(--color-dark);
     text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.logo-img {
+    height: 40px;
+    width: auto;
+    display: block;
+}
+
+.logo-dark {
+    display: none;
+}
+
+.logo-divider {
+    width: 2px;
+    height: 30px;
+    background: var(--color-gray-medium);
+    opacity: 0.5;
+}
+
+.logo-text {
     display: inline-block;
+    padding-left: 2px;
+}
+
+.logo-bold {
+    font-weight: 800;
+}
+
+.logo-thin {
+    font-weight: 300;
 }
 
 .nav-links {
@@ -1486,7 +1518,7 @@ section.visible {
 .care-card.featured {
     border-color: var(--color-care-accent);
     transform: scale(1.05);
-    background: linear-gradient(135deg, rgba(16, 185, 129, 0.02) 0%, var(--color-white) 100%);
+    background: var(--color-white);
 }
 
 .care-card.featured:hover {
@@ -2213,15 +2245,29 @@ footer .social-icons a i {
     background: #4A9EFF;
 }
 
-/* Logo link styling */
-.logo {
-    cursor: pointer;
-    transition: var(--transition);
+/* Logo theme switching */
+[data-theme="dark"] .logo-light {
+    display: none;
 }
 
+[data-theme="dark"] .logo-dark {
+    display: block;
+}
+
+[data-theme="dark"] .logo-divider {
+    background: var(--color-gray-medium);
+    opacity: 0.3;
+}
+
+/* Logo link styling */
+/* Logo hover effects */
 .logo:hover {
     opacity: 0.8;
+}
+
+.logo:hover .logo-img {
     transform: scale(1.05);
+    transition: transform 0.3s ease;
 }
 
 /* Custom Cursor (Optional) */
