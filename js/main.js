@@ -231,8 +231,7 @@ contactCopyItems.forEach(item => {
 });
 
 // Initialize EmailJS
-// TODO: Replace 'YOUR_PUBLIC_KEY' with your EmailJS public key (get it from EmailJS dashboard > Account > API Keys)
-emailjs.init('YOUR_PUBLIC_KEY');
+emailjs.init('CF5SEkDPlL6kVzk1o');
 
 // Form submission
 const contactForm = document.getElementById('contactForm');
