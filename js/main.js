@@ -231,7 +231,7 @@ contactCopyItems.forEach(item => {
 });
 
 // Initialize EmailJS
-// Replace 'YOUR_PUBLIC_KEY' with your EmailJS public key
+// TODO: Replace 'YOUR_PUBLIC_KEY' with your EmailJS public key (get it from EmailJS dashboard > Account > API Keys)
 emailjs.init('YOUR_PUBLIC_KEY');
 
 // Form submission
@@ -247,8 +247,9 @@ contactForm.addEventListener('submit', async (e) => {
     submitButton.textContent = 'Sending...';
     
     try {
-        // Replace 'YOUR_SERVICE_ID' and 'YOUR_TEMPLATE_ID' with your EmailJS service and template IDs
-        await emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', contactForm);
+        // Service ID: service_h1h99gh
+        // TODO: Replace 'YOUR_TEMPLATE_ID' with your EmailJS template ID (get it from EmailJS dashboard > Email Templates)
+        await emailjs.sendForm('service_h1h99gh', 'YOUR_TEMPLATE_ID', contactForm);
         
         // Success message
         alert('Thank you for your message! We\'ll get back to you soon.');
